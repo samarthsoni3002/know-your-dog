@@ -15,7 +15,7 @@ Upload a picture of a dog to:
 
 ### 🔻 Upload and Detect Flow
 
-![upload preview]("./image.png")
+![upload preview]("screenshots/image.png")
 
 ---
 
