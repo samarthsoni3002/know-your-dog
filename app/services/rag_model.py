@@ -1,32 +1,23 @@
-from langchain.vectorstores import FAISS
-from langchain.embeddings import HuggingFaceEmbeddings 
-from langchain.chains import RetrievalQA
-from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
-import torch 
+import os
+import requests
+from app.core.config import Settings as settings
 
+API_URL = "https://router.huggingface.co/featherless-ai/v1/chat/completions"
+headers = {
+    "Authorization": f"Bearer {settings.HF_TOKEN}",
+}
 
-embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+def generate_answer(prompt: str) -> str:
+    payload = {
+         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+        "messages": [{"role": "user", "content": prompt}]
+    }
 
-vectorstore = FAISS.load_local("app/vector_index",embedding_model, allow_dangerous_deserialization=True)
+    response = requests.post(API_URL, headers=headers, json=payload)
 
-retriever = vectorstore.as_retriever(search_kwargs={"k":3})
+    if response.status_code != 200:
+        print("API Error:", response.status_code, response.text)
+        return "Sorry, something went wrong while generating the answer."
 
-qa_pipeline = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-base", 
-    tokenizer="google/flan-t5-base",
-    max_length=512,
-    truncation=True
-)
-
-def get_dog_info(breed_name:str) -> str: 
-    
-    docs = retriever.get_relevant_documents(breed_name) 
-    
-    context = "\n".join([doc.page_content for doc in docs])
-    
-    prompt = f"Use the following information to answer the question:\n{context}\n\nQuestion: Tell me about the {breed_name} dog breed."
-
-    result = qa_pipeline(prompt)[0]["generated_text"]
-    
-    return result
+    data = response.json()
+    return data.get("choices", [{}])[0].get("message", {}).get("content", "No answer generated.")

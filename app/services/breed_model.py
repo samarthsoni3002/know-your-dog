@@ -14,7 +14,7 @@ for param in model.parameters():
     
 model.fc = nn.Linear(model.fc.in_features, len(class_names))
 
-model.load_state_dict(torch.load(settings.model_path, map_location=device))
+model.load_state_dict(torch.load(settings.MODEL_PATH, map_location=device))
 
 model.eval() 
 
