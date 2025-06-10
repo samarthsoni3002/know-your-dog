@@ -7,6 +7,7 @@ from app.services.rag_model import get_dog_info
 router = APIRouter() 
 
 
+
 @router.get("/")
 async def root():
     return {"message": "Welcome to Know Your Dog API"}
