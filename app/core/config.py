@@ -10,6 +10,6 @@ class Settings:
     INDEX_FILE = os.getenv("INDEX_FILE")
     MODEL_ID = os.getenv("MODEL_ID")
     HF_TOKEN: str = os.getenv("HF_TOKEN")
-    assert HF_TOKEN is not None, "❌ HF_TOKEN not found in .env"
+    assert HF_TOKEN is not None, "HF_TOKEN not found in .env"
 
 settings = Settings()
