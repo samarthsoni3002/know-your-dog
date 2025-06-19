@@ -6,8 +6,7 @@ Upload a picture of a dog to:
 
 - 🧠 Detect its breed using a CNN-based image classifier
 - 📚 Retrieve detailed information using a RAG-powered NLP pipeline
-- (Coming Soon) 💬 Ask follow-up questions via chatbot
-- (Coming Soon) 🏥 View shelters/NGOs where this breed is available
+- 💬 Ask follow-up questions via chatbot
 
 ---
 
@@ -15,7 +14,9 @@ Upload a picture of a dog to:
 
 ### 🔻 Upload and Detect Flow
 
-![upload preview]("./screenshots/image.png")
+![main page preview] ("./screenshots/mainpage.png")
+![dog page preview] ("./screenshots/dog_page.png")
+![live chat preview] ("./screenshots/chat.png")
 
 ---
 
@@ -90,8 +91,6 @@ Runs on: `http://127.0.0.1:8000`
 
 ## ✅ Next Steps
 
-- [ ] Add chatbot UI to frontend
-- [ ] Connect chatbot to backend RAG model
 - [ ] Add NGO/shelter data section
 
 ---
