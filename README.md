@@ -12,11 +12,17 @@ Upload a picture of a dog to:
 
 ## 🖼️ Demo Preview
 
-### 🔻 Upload and Detect Flow
+### 🖥️ Main Interface
 
-![main page preview] ("./screenshots/mainpage.png")
-![dog page preview] ("./screenshots/dog_page.png")
-![live chat preview] ("./screenshots/chat.png")
+![Main UI](./screenshots/mainpage.png)
+
+### 🐶 Dog Detection Interface
+
+![Dog Detection](./screenshots/dog_page.png)
+
+### 📝 Live Chat Interface
+
+![Live Chat](./screenshots/chat.png)
 
 ---
 
