@@ -1,19 +1,19 @@
-import os
 import requests
-from app.core.config import Settings as settings
+from app.core.config import settings
 
-API_URL = "https://router.huggingface.co/featherless-ai/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {settings.HF_TOKEN}",
+    "Content-Type": "application/json",
 }
 
 def generate_answer(prompt: str) -> str:
     payload = {
-         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-        "messages": [{"role": "user", "content": prompt}]
+        "model": settings.MODEL_ID,
+        "messages": [{"role": "user", "content": prompt}],
+        "stream": False,
     }
 
-    response = requests.post(API_URL, headers=headers, json=payload)
+    response = requests.post(settings.HF_API_URL, headers=headers, json=payload)
 
     if response.status_code != 200:
         print("API Error:", response.status_code, response.text)

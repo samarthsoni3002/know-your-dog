@@ -23,7 +23,7 @@ function ChatComponent({ sessionId }) {
       const data = await res.json();
 
       setMessages((prev) => [...prev, { sender: "bot", text: data.response }]);
-    } catch (err) {
+    } catch {
       setMessages((prev) => [
         ...prev,
         { sender: "bot", text: "❌ Something went wrong." },
