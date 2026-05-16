@@ -14,15 +14,15 @@ Upload a picture of a dog to:
 
 ### 🖥️ Main Interface
 
-![Main UI](./screenshots/mainpage.png)
+![Main UI](./screenshots/main_page.png)
 
 ### 🐶 Dog Detection Interface
 
-![Dog Detection](./screenshots/dog_page.png)
+![Dog Detection](./screenshots/detection.png)
 
 ### 📝 Live Chat Interface
 
-![Live Chat](./screenshots/chat.png)
+![Live Chat](./screenshots/qa.png)
 
 ---
 
